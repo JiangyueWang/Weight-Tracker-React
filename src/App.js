@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import DisplayEntries from './Components/DisplayEntries/DisplayEntries.jsx';
 
+// functional component named App 
+// component App gets instantiated in index.js
 function App() {
+  const [entries, setEntries] = useState([{weight: 175, date: '11-23-2021'}, {weight: 165, date: '11-23-2022'}])
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* DisplayEntries is the child component of App components */}
+      {/* place it in a self-closing html tag means instantiated into parent component */}
+      <DisplayEntries entries={entries}/>
     </div>
   );
 }
