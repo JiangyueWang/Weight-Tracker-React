@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DisplayEntries from './Components/DisplayEntries/DisplayEntries.jsx';
 import AddEntryForm from './Components/AddEntry/AddEntryForm.jsx';
 import EntriesChartTracker from './Components/EntriesChartTracker/EntriesChartTracker.jsx';
+import './App.css';
 // functional component named App 
 // component App gets instantiated in index.js
 function App() {
@@ -17,12 +18,30 @@ function addNewEntry(entry) {
   setEntries(tempEntries);
 }
   return (
-    <div>
-      {/* DisplayEntries is the child component of App components */}
-      {/* place it in a self-closing html tag means instantiated into parent component */}
-      <DisplayEntries entries={entries}/>
-      <AddEntryForm addNewEntryProp = {addNewEntry}/>
-      <EntriesChartTracker parentEntries={entries}/>
+    <div className='container-fluid'>
+      <div className='row'>
+        <h3 style={{'margin': '1em'}}>Weight Tracker</h3>
+        <div className='col-md-6'>
+          <div className='border-box'>
+            {/* DisplayEntries is the child component of App components */}
+            {/* place it in a self-closing html tag means instantiated into parent component */}
+            <DisplayEntries entries={entries}/>
+           
+          </div>
+          <div className='border-box'>
+            <AddEntryForm addNewEntryProp = {addNewEntry}/>
+          </div>
+          
+        </div>
+        <div className='col-md-6'>
+          <div className='border-box'>
+            <EntriesChartTracker parentEntries={entries}/>
+          </div>
+          
+        </div>
+      </div>
+      
+      
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './AddEntryForm.css';
 const AddEntryForm = (props) => {
     // below state variables weight and date only exist on the AddEntryForm jsx.
     // both state variables weight and data are bonded to the input on the Form below 
@@ -20,12 +20,17 @@ const AddEntryForm = (props) => {
     } 
 
     return ( 
-        <form onSubmit={handleSubmit}>
-            <label>Weight</label>
-            <input type="number" value={weight} onChange={(event) => setWeight(parseFloat(event.target.value))}></input>
-            <label>Date</label>
-            <input type='date' value={date} onChange={(event) => setDate(event.target.value)}></input>
-            <button type='submit'>Add</button>
+        <form onSubmit={handleSubmit} className='form-grid'>
+            <div className='form-group'>
+                <label>Weight</label>
+                <input className="form-control" type="number" value={weight} onChange={(event) => setWeight(parseFloat(event.target.value))}></input>
+            </div>
+            <div className='form-group'>
+                <label>Date</label>
+                <input className="form-control" type='date' value={date} onChange={(event) => setDate(event.target.value)}></input>
+            </div>
+    
+            <button className="btn btn-primary" type='submit' style={{'margin-top': '1em'}}>Add</button>
         </form>
      );
 }
