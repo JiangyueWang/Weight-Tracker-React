@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DisplayEntries from './Components/DisplayEntries/DisplayEntries.jsx';
 import AddEntryForm from './Components/AddEntry/AddEntryForm.jsx';
+import EntriesChartTracker from './Components/EntriesChartTracker/EntriesChartTracker.jsx';
 // functional component named App 
 // component App gets instantiated in index.js
 function App() {
@@ -12,6 +13,7 @@ function App() {
 function addNewEntry(entry) {
   // let tempEntries = [entry, ]
   let tempEntries = [...entries, entry];
+  // console.log(tempEntries);
   setEntries(tempEntries);
 }
   return (
@@ -20,6 +22,7 @@ function addNewEntry(entry) {
       {/* place it in a self-closing html tag means instantiated into parent component */}
       <DisplayEntries entries={entries}/>
       <AddEntryForm addNewEntryProp = {addNewEntry}/>
+      <EntriesChartTracker parentEntries={entries}/>
     </div>
   );
 }
